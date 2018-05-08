@@ -1,10 +1,10 @@
 'use strict';
 
 import superagent from 'superagent';
-import { startServer, stopServer} from '../lib/server';
+import { startServer, stopServer } from '../lib/server';
 import { pRemoveAccountMock } from './lib/account-mock';
 
-const apiURL = `http://localhost:${process.env.PORT}/signup`;
+const apiURL = 'http://localhost:7000/signup';
 
 describe('AUTH Router', () => {
   beforeAll(startServer);

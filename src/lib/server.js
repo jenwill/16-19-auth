@@ -21,10 +21,10 @@ app.all('*', (request, response) => {
 app.use(errorMiddleware);
 
 const startServer = () => {
-  return mongoose.connect(process.env.MONGODB_URI)
+  return mongoose.connect('mongodb://localhost/testing')
     .then(() => {
-      server = app.listen(process.env.PORT, () => {
-        logger.log(logger.INFO, `Server is listening on port ${process.env.PORT}`);
+      server = app.listen(7000, () => {
+        logger.log(logger.INFO, 'Server is listening on port 7000');
       });
     });
 };
