@@ -90,6 +90,7 @@ typings/
 
 # dotenv environment variables file
 .env
+test.env.js
 
 
 ### WebStorm ###
@@ -217,8 +218,5 @@ typings/
 
 # Yarn Integrity file
 .yarn-integrity
-
-# dotenv environment variables file
-.env
 
 # End of Code Fellows codefellows/seattle-javascript-401d23 class repo .gitignore
