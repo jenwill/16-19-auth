@@ -1,4 +1,4 @@
-Lab 16: Basic Authentication
+Lab 16: Lab 17: Bearer Authentication
 
 **Author:** Jennifer Piper
 

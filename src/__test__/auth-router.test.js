@@ -4,7 +4,7 @@ import superagent from 'superagent';
 import { startServer, stopServer } from '../lib/server';
 import { pRemoveAccountMock } from './lib/account-mock';
 
-const apiURL = `http://localhost:${process.env.PORT}/signup`;
+const apiURL = `http://localhost:${process.env.PORT}`;
 
 describe('AUTH Router', () => {
   beforeAll(startServer);
@@ -12,7 +12,7 @@ describe('AUTH Router', () => {
   afterEach(pRemoveAccountMock);
 
   test('POST should return a 200 status code and a TOKEN', () => {
-    return superagent.post(apiURL)
+    return superagent.post(`${apiURL}/signup`)
       .send({
         username: 'darwin',
         email: 'darwin@squareandplum.com',
