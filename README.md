@@ -1,4 +1,4 @@
-Lab 16: Lab 17: Bearer Authentication
+Lab 19: 
 
 **Author:** Jennifer Piper
 
@@ -10,9 +10,21 @@ In a node.js environment, from the root of this repo, install dependencies:
 Start the database server: 
 * `npm run dbon`
 
-And run tests (this starts the Node server before the tests, and stops it after the tests):
+Run tests (this starts the Node server before the tests, and stops it after the tests):
 * `npm run test`
 
 To turn off the database server: 
 * `npm run dboff`
+
+## API Endpoints
+
+POST /media
+
+GET /media/:id
+
+DELETE /media/:id
+
+## Screenshot of uploaded resource
+
+![](screenShotUploadedResource.png)
 

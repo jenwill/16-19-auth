@@ -12,7 +12,7 @@ const pCreateMediaMock = () => {
       resultMock.accountMock = mockAcctResponse;
       return new Media({
         title: faker.lorem.words(5),
-        mediaType: 'video',
+        mediaType: faker.lorem.words(2),
         url: faker.random.image(),
         account: resultMock.accountMock.account._id,
       }).save();

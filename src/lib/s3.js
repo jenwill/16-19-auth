@@ -16,7 +16,6 @@ const s3Upload = (path, key) => {
   return amazonS3.upload(uploadOptions)
     .promise()
     .then((response) => {
-      // console.log(response, 'response from s3')
       return fs.remove(path)
         .then(() => response.Location)
         .catch(err => Promise.reject(err));

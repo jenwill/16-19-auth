@@ -3,6 +3,7 @@
 # Includes Code Fellows codefellows/seattle-javascript-401d23 class repo .gitignore
 
 db/
+src/temp/*
 
 ### macOS ###
 *.DS_Store

@@ -14,7 +14,7 @@ describe('TESTING ROUTES AT /media', () => {
   describe('POST 200 for successful post to /media', () => {
     test('should return 200 for successful media post', () => {
       // only do this if you have a slow computer AND you want to make a real API call to S3
-      // jest.setTimeout(10000);
+      jest.setTimeout(10000);
       return pCreateMediaMock()
         .then((mockResponse) => {
           const { token } = mockResponse.accountMock;
