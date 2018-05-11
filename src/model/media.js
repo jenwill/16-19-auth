@@ -2,7 +2,7 @@
 
 import mongoose from 'mongoose';
 
-const mediaSchema = mongoose.Schema()({
+const mediaSchema = mongoose.Schema({
   title: {
     type: String,
     required: true,
