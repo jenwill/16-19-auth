@@ -1,4 +1,4 @@
-Lab 19: 
+Lab 20: Back-end Deployment 
 
 **Author:** Jennifer Piper
 
@@ -16,15 +16,5 @@ Run tests (this starts the Node server before the tests, and stops it after the 
 To turn off the database server: 
 * `npm run dboff`
 
-## API Endpoints
 
-POST /media
-
-GET /media/:id
-
-DELETE /media/:id
-
-## Screenshot of uploaded resource
-
-![](screenShotUploadedResource.png)
 
