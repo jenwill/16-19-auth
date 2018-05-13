@@ -46,7 +46,7 @@ describe('TESTING ROUTES AT /media', () => {
           expect(error.status).toEqual(400);
         });
     });
-    test('POST - 401 for invalid or missing token', () => {
+    test('POST - 401 for invalid token', () => {
       return superagent.post(`${apiURL}/media`)
         .set('Authorization', 'Bearer thisIsNotAValidToken')
         .field('title', 'Marbles Bitmap')
