@@ -2,7 +2,7 @@
 
 import superagent from 'superagent';
 import { startServer, stopServer } from '../lib/server';
-import { pRemoveAccountMock } from './lib/account-mock';
+import { pCreateAccountMock, pRemoveAccountMock } from './lib/account-mock';
 
 const apiURL = `http://localhost:${process.env.PORT}/signup`;
 
@@ -33,6 +33,22 @@ describe('AUTH Router', () => {
         .then(Promise.reject)
         .catch((error) => {
           expect(error.status).toEqual(400);
+        });
+    });
+    test('POST - 409 for duplicate key', () => {
+      return pCreateAccountMock()
+        .then((account) => {
+          const accountToPost = {
+            username: account.request.username,
+            email: 'darwin@squareandplum.com',
+            password: 'meow!',
+          };
+          return superagent.post(apiURL)
+            .send(accountToPost)
+            .then(Promise.reject)
+            .catch((error) => {
+              expect(error.status).toEqual(409);
+            });
         });
     });
   });
