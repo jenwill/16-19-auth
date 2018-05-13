@@ -46,5 +46,15 @@ describe('TESTING ROUTES AT /media', () => {
           expect(error.status).toEqual(400);
         });
     });
+    test('POST - 401 for invalid or missing token', () => {
+      return superagent.post(`${apiURL}/media`)
+        .set('Authorization', 'Bearer thisIsNotAValidToken')
+        .field('title', 'Marbles Bitmap')
+        .attach('media', `${__dirname}/assets/marbles.bmp`)
+        .then(Promise.reject)
+        .catch((error) => {
+          expect(error.status).toEqual(401);
+        });
+    });
   });
 });
