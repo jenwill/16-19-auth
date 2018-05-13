@@ -1,6 +1,7 @@
 'use strict';
 
 import superagent from 'superagent';
+import faker from 'faker';
 import { startServer, stopServer } from '../lib/server';
 import { pCreateMediaMock, pRemoveMediaMock } from './lib/media-mock';
 
@@ -11,10 +12,9 @@ describe('TESTING ROUTES AT /media', () => {
   afterAll(stopServer);
   afterEach(pRemoveMediaMock);
 
-  describe('POST 200 for successful post to /media', () => {
-    test('should return 200 for successful media post', () => {
-      // only do this if you have a slow computer AND you want to make a real API call to S3
-      jest.setTimeout(10000);
+  describe('POST  /media', () => {
+    test('200 for successful media post', () => {
+      // jest.setTimeout(10000);
       return pCreateMediaMock()
         .then((mockResponse) => {
           const { token } = mockResponse.accountMock;
@@ -30,9 +30,20 @@ describe('TESTING ROUTES AT /media', () => {
             });
         })
         .catch((err) => {
-          console.log(err.message, 'ERR IN TEST');
-          console.log(err.status, 'CODE ERR IN TEST');
           expect(err.status).toEqual(200);
+        });
+    });
+    test('POST - 400 for bad request', () => {
+      const mediaToPost = {
+        title: faker.lorem.words(5),
+        mediaType: faker.lorem.words(2),
+        url: faker.random.image(),
+      };
+      return superagent.post(`${apiURL}/media`)
+        .send(mediaToPost)
+        .then(Promise.reject)
+        .catch((error) => {
+          expect(error.status).toEqual(400);
         });
     });
   });

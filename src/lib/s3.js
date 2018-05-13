@@ -1,6 +1,7 @@
 'use strict';
 
 import fs from 'fs-extra';
+import logger from './logger';
 
 const s3Upload = (path, key) => {
   const AWS = require('aws-sdk');
@@ -37,8 +38,8 @@ const s3Remove = (key) => {
 
   return amazonS3.deleteObject(removeOptions)
     .promise()
-    .then((data) => {
-      console.log(data, 'SUCCESS');
+    .then(() => {
+      logger.log(logger.INFO, 'SUCCESS');
     })
     .catch((err) => {
       Promise.reject(err);
