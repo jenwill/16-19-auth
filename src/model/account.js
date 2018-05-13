@@ -7,7 +7,6 @@ import jsonWebToken from 'jsonwebtoken';
 
 const HASH_ROUNDS = 8;
 const TOKEN_SEED_LENGTH = 128;
-const TEST_SECRET = 'Tv33tRX1150CuHtH9oaexr4IwUWHkjdD6fsj8Y4QllBs515Gv0BzR4TUYb4T8092FW5W6VEz9IksI27mRK6k771yR5ydbv4jz7kjR';
 
 const accountSchema = mongoose.Schema({
   passwordHash: {
@@ -36,10 +35,9 @@ function pCreateToken() {
     .then((account) => {
       return jsonWebToken.sign(
         { tokenSeed: account.tokenSeed },
-        TEST_SECRET,
+        process.env.TEST_SECRET,
       );
     });
-  // TODO: error management;
 }
 
 accountSchema.methods.pCreateToken = pCreateToken;
