@@ -38,7 +38,6 @@ function pCreateToken() {
         process.env.TEST_SECRET,
       );
     });
-  // TODO: error management;
 }
 
 accountSchema.methods.pCreateToken = pCreateToken;
